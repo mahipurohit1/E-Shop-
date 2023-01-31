@@ -1,0 +1,28 @@
+.checkout-total {
+  box-shadow: 0px 0 10px rgba(0, 0, 0, 0.146);
+  padding: 20px;
+}
+.checkout-total p {
+  font-size: 18px;
+}
+.checkout-total p span {
+  font-size: 20px;
+  font-weight: bold;
+}
+.button {
+  width: 100%;
+  padding: 12px 24px;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  background-color: rgb(16, 16, 74);
+  border-radius: 6px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.button:hover {
+  color: rgb(16, 16, 74);
+  background-color: white;
+}
