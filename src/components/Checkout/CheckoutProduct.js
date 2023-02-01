@@ -1,6 +1,10 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { addItemToCart, removeItemFromCart } from "../Store/CartSlice";
+import {
+  addItemToCart,
+  removeItemFromCart,
+  removeFullItemFromCart,
+} from "../Store/CartSlice";
 import Styles from "./CheckoutProduct.module.css";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
@@ -13,7 +17,7 @@ function CheckoutProduct(props) {
   };
   const dispatch = useDispatch();
   const removeItemHandler = () => {
-    dispatch(removeItemFromCart(props.id));
+    dispatch(removeFullItemFromCart(props.id));
   };
   return (
     <div className={Styles["checkoutProduct"]}>
