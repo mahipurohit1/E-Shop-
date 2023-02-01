@@ -1,22 +1,24 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { removeItemFromCart } from "../Store/CartSlice";
 import Styles from "./CheckoutProduct.module.css";
-function CheckoutProduct() {
+function CheckoutProduct(props) {
+  const dispatch = useDispatch();
+  const removeItemHandler = () => {
+    dispatch(removeItemFromCart(props.id));
+  };
   return (
     <div className={Styles["checkoutProduct"]}>
       <div className={Styles["product_img"]}>
-        <img
-          src="https://images-na.ssl-images-amazon.com/images/I/71mEsHyzSCL._SL1000_.jpg"
-          alt="beg"
-        />
+        <img src={props.image} alt={props.title} />
       </div>
       <div className="product_description">
-        <h3>
-          Bennett Mystic 15.6 inch Laptop Shoulder Messenger Sling Office Bag,
-          Water Repellent Fabric for Men and Women (Blue)
-        </h3>
-        <p className={Styles["price"]}> $ 200</p>
-        <p className={Styles["rating"]}>⭐</p>
-        <button className={Styles["button"]}>Remove item</button>
+        <h3>{props.title}</h3>
+        <p className={Styles["price"]}> $ {props.price}</p>
+        <p className={Styles["rating"]}>{Array(props.rating).fill("⭐")}</p>
+        <button className={Styles["button"]} onClick={removeItemHandler}>
+          Remove item
+        </button>
       </div>
     </div>
   );

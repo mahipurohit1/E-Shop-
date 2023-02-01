@@ -18,15 +18,15 @@ const cartSlice = createSlice({
       };
       state.cartItems.push(item);
     },
-  },
-  removeItemFromCart(state, action) {
-    state.totalQuantity--;
-    const selectedId = action.payload.id;
+    removeItemFromCart(state, action) {
+      state.totalQuantity--;
+      const selectedId = action.payload;
 
-    const updateItem = state.cartItems.filter((item) => {
-      return item.id !== selectedId;
-    });
-    state.cartItems = updateItem;
+      const updateItem = state.cartItems.filter((item) => {
+        return item.id !== selectedId;
+      });
+      state.cartItems = updateItem;
+    },
   },
 });
 

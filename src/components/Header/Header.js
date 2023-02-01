@@ -4,7 +4,9 @@ import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Style from "./Header.module.css";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 function Header() {
+  const cart = useSelector((state) => state.cart);
   return (
     <div className={Style.header}>
       <div className={Style["header__logo"]}>
@@ -38,7 +40,9 @@ function Header() {
             {" "}
             <ShoppingCartIcon fontSize="large"></ShoppingCartIcon>{" "}
           </Link>
-          <span className={Style["header__nav_item_counter"]}>0</span>
+          <span className={Style["header__nav_item_counter"]}>
+            {cart.totalQuantity}
+          </span>
         </div>
       </div>
     </div>

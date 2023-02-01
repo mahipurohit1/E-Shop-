@@ -1,6 +1,12 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { addItemToCart } from "../Store/CartSlice";
 import Styles from "./Product.module.css";
 function Product(props) {
+  const dispatch = useDispatch();
+  const addItemHandler = () => {
+    dispatch(addItemToCart(props));
+  };
   return (
     <div className={Styles["product"]}>
       <div className={Styles["product_img"]}>
@@ -12,7 +18,9 @@ function Product(props) {
         <p className={Styles["rating"]}>{Array(props.rating).fill("⭐")}</p>
       </div>
 
-      <button className={Styles["button"]}>Add to cart</button>
+      <button className={Styles["button"]} onClick={addItemHandler}>
+        Add to cart
+      </button>
     </div>
   );
 }

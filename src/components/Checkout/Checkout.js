@@ -1,8 +1,10 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import Styles from "./Checkout.module.css";
 import CheckoutProduct from "./CheckoutProduct";
 import CheckoutTotal from "./CheckoutTotal";
 function Checkout() {
+  const cart = useSelector((state) => state.cart);
   return (
     <>
       <div className={Styles["checkout"]}>
@@ -16,11 +18,25 @@ function Checkout() {
         </div>
         <div className={Styles["checkout-items-container"]}>
           <div className={Styles["checkout-items"]}>
-            <CheckoutProduct />
-            <CheckoutProduct />
+            <ul>
+              {cart.cartItems.map((item) => {
+                return (
+                  <li key={item.id}>
+                    {" "}
+                    <CheckoutProduct
+                      title={item.title}
+                      image={item.image}
+                      id={item.id}
+                      price={item.price}
+                      rating={item.rating}
+                    />
+                  </li>
+                );
+              })}
+            </ul>
           </div>
           <div className={Styles["checkout-items-price"]}>
-            <CheckoutTotal />
+            <CheckoutTotal item={cart.totalQuantity} />
           </div>
         </div>
       </div>
