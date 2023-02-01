@@ -36,7 +36,10 @@ function Checkout() {
             </ul>
           </div>
           <div className={Styles["checkout-items-price"]}>
-            <CheckoutTotal item={cart.totalQuantity} />
+            <CheckoutTotal
+              item={cart.totalQuantity}
+              totalPrice={cart.totalPrice}
+            />
           </div>
         </div>
       </div>
