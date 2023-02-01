@@ -29,6 +29,7 @@ function Checkout() {
                       id={item.id}
                       price={item.price}
                       rating={item.rating}
+                      quantity={item.quantity}
                     />
                   </li>
                 );

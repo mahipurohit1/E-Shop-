@@ -13,7 +13,8 @@ function CheckoutTotal(props) {
   return (
     <div className={Styles["checkout-total"]}>
       <p>
-        SubTotal (item : {props.item}) : <span>${props.totalPrice}</span>
+        SubTotal (item : {props.item}) :{" "}
+        <span>${props.totalPrice.toFixed(2)}</span>
       </p>
       <p>
         <input type="checkbox" name="" id="" /> this items contain gifts{" "}
